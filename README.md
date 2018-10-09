@@ -5,3 +5,5 @@
 Shader library for HeavyM, ISF format, mostly from Shadertoy.com
 
 Clone in Documents\HeavyM\ShadersLibrary
+
+Add shaders by copying Template.fs, edit, test, then share by doing a pull request!

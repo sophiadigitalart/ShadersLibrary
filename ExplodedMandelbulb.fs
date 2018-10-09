@@ -6,15 +6,15 @@
 	],
 	"INPUTS": [
         {
-			"NAME": "size",
+			"NAME": "Decimal",
 			"TYPE": "float",
 			"MIN": 0.0,
 			"MAX": 1.0,
 			"DEFAULT": 0.1
 		},
         {
-			"NAME": "longE",
-			"LABEL": " mode",
+			"NAME": "Liste",
+			"LABEL": "mode",
 			"TYPE": "long",
 			"VALUES": [
 				0,
@@ -23,22 +23,22 @@
 				3
 			],
 			"LABELS": [
-				"Fit",
-				"Fill",
-				"Stretch",
-				"Copy"
+				"Item1",
+				"Item2",
+				"Item3",
+				"Item4"
 			],
 			"DEFAULT": 0
 		},
         {
-				"NAME" :	"iMouse",
-				"TYPE" :	"point2D",
-				"DEFAULT" :	[ 0.0, 0.0 ],
-				"MAX" : 	[ 510.0, 510.0 ],
-      			"MIN" :  	[ 0.0, 0.0 ]
+			"NAME" :	"iMouse",
+			"TYPE" :	"point2D",
+			"DEFAULT" :	[ 0.0, 0.0 ],
+			"MAX" : 	[ 640.0, 480.0 ],
+			"MIN" :  	[ 0.0, 0.0 ]
 		},
 		{
-			"NAME": "col",
+			"NAME": "Couleur",
 			"TYPE": "color",
 			"DEFAULT": [
 				0.0,
@@ -48,7 +48,7 @@
 			]
 		},
 		{
-			"NAME": "alphaMode",
+			"NAME": "Booleen",
 			"TYPE": "bool",
 			"DEFAULT": 0.0
 		}
