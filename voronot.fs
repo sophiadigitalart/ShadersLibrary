@@ -8,7 +8,8 @@
 	],
 }*/
 
-vec3 iResolution = vec3(RENDERSIZE, 1.);
+#define iResolution RENDERSIZE
+#define iTime TIME
 
 void mainImage( out vec4 f, in vec2 w ) {
 	
@@ -16,7 +17,7 @@ void mainImage( out vec4 f, in vec2 w ) {
 	float d = length(p) / r.y, c=1., x = pow(d, .1), y = atan(p.x, p.y) / 6.28;
 	
 	for (float i = 0.; i < 3.; ++i)    
-		c = min(c, length(fract(vec2(x - iDate.w*i*.005, fract(y + i*.125)*.5)*20.)*2.-1.));
+		c = min(c, length(fract(vec2(x - iTime*i*.005, fract(y + i*.125)*.5)*20.)*2.-1.));
 
 	f = vec4(d+20.*c*d*d*(.6-d));
 }

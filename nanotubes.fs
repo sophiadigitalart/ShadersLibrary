@@ -1,15 +1,12 @@
 /*{
 	"DESCRIPTION": "https://www.shadertoy.com/view/lslGRH",
-	"CREDIT": "by Trisomie21",
+	"CREDIT": "NanoTubes by Trisomie21",
 	"CATEGORIES": [
 		"Your category"
 	],
 	"INPUTS": [
 	],
 }*/
-
-vec3 iResolution = vec3(RENDERSIZE, 1.);
-float iTime = TIME;
 
 // With tweaks from fernlightning
 
@@ -40,8 +37,8 @@ vec2 map( vec3 p ) {
 }
 
 void mainImage( out vec4 fragColor, in vec2 fragCoord ) {
-    vec2 pos = (fragCoord.xy*2.0 - iResolution.xy) / iResolution.y;
-    vec3 camPos = vec3(cos(iTime*0.3), sin(iTime*0.3), 3.5);
+    vec2 pos = (fragCoord.xy*2.0 - RENDERSIZE.xy) / RENDERSIZE.y;
+    vec3 camPos = vec3(cos(TIME*0.3), sin(TIME*0.3), 3.5);
     vec3 camTarget = vec3(0.0, 0.0, .0);
 
     vec3 camDir = normalize(camTarget-camPos);
@@ -57,7 +54,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord ) {
     const int MAX_MARCH = 100;
     const float MAX_DISTANCE = 100.0;
     for(int i=0; i<MAX_MARCH; ++i) {
-        d = map(ray-vec3(0.,0.,iTime/2.));
+        d = map(ray-vec3(0.,0.,TIME/2.));
         total_d += d.x;
         ray += rayDir * d.x;
         m += 1.0;

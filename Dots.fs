@@ -1,23 +1,15 @@
 /*{
-	"DESCRIPTION": "Your shader description",
-	"CREDIT": "by you",
+	"DESCRIPTION": "https://www.shadertoy.com/view/4lVyDt",
+	"CREDIT": "3d dot ring by iridule",
 	"CATEGORIES": [
-		"Your category"
+		"dots"
 	],
 	"INPUTS": [
 	],
 }*/
 
-vec3 iResolution = vec3(RENDERSIZE, 1.);
-float iTime = TIME;
-
-/*
-	3d rings test, polar rep borrowed from:
-	https://www.shadertoy.com/view/MlyyDd
-*/
-
-#define R iResolution.xy
-#define T iTime
+#define R RENDERSIZE.xy
+#define T TIME
 
 vec2 polarRep(vec2 U, float n) {
     n = 6.283/n;

@@ -1,6 +1,6 @@
 /*{
-	"DESCRIPTION": "Your shader description",
-	"CREDIT": "by you",
+	"DESCRIPTION": "https://www.shadertoy.com/view/llycWd",
+	"CREDIT": "shaping functions by Simplyfire",
 	"CATEGORIES": [
 		"Your category"
 	],
@@ -8,19 +8,8 @@
 	],
 }*/
 
-vec3 iResolution = vec3(RENDERSIZE, 1.);
-float iTime = TIME;
-
-
-
-#ifdef GL_ES
-precision mediump float;
-#endif
-#ifdef GL_FRAGMENT_PRECISION_HIGH
-precision highp float;
-#else
-precision highp float;
-#endif
+#define iResolution RENDERSIZE
+#define iTime TIME
 
 #define pi 3.14159265359
 
@@ -88,9 +77,6 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 
    fragColor = vec4(hsb2rgb(color),1.);
  }
-
-
-
 
 void main(void) {
     mainImage(gl_FragColor, gl_FragCoord.xy);
