@@ -1,15 +1,17 @@
-# ShadersLibrary
+# ISF Shader Library for HeavyM
 
 ![Preview](https://raw.github.com/sophiadigitalart/ShadersLibrary/master/HeavyMshadertoy.jpg)
 
 Shader library for HeavyM, ISF format, mostly from https://Shadertoy.com
 
+##### Usage:
 Git clone in Documents\HeavyM\ShadersLibrary to use them.
 
+##### Contributing:
 In case you want to contribute, instead of cloning this repo, fork it and :
 Add shaders by copying Template.fs, edit, test, then share by doing a pull request!
 
-Note:
+##### Note:
 HeavyM expect standard uniform variables named RENDERSIZE, TIME...
 To ease the shader editing process, I propose to use defines to match shadertoy uniform variable names:
 ```
@@ -17,7 +19,7 @@ To ease the shader editing process, I propose to use defines to match shadertoy 
 #define iTime TIME 
 ```
 
-Note:
+##### Note:
 iMouse, IDate and some other uniform variables are not currently supported, so I add them in the INPUTS section:
 ```
 "INPUTS": [
@@ -30,4 +32,4 @@ iMouse, IDate and some other uniform variables are not currently supported, so I
 		}
     ]    
 ```
-Check ![this shader](https://raw.github.com/sophiadigitalart/ShadersLibrary/master/ExplodedMandelbulb.fs)
+Check [this shader](https://raw.github.com/sophiadigitalart/ShadersLibrary/master/ExplodedMandelbulb.fs)
