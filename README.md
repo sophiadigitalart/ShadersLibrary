@@ -32,4 +32,6 @@ iMouse, IDate and some other uniform variables are not currently supported, so I
 		}
     ]    
 ```
-Check [this shader](https://raw.github.com/sophiadigitalart/ShadersLibrary/master/ExplodedMandelbulb.fs)
+Check [this shader] for more input types. (https://raw.github.com/sophiadigitalart/ShadersLibrary/master/ExplodedMandelbulb.fs)
+
+![iMouse](https://raw.github.com/sophiadigitalart/ShadersLibrary/master/iMouse.gif)
