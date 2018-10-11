@@ -11,7 +11,10 @@ Git clone in Documents\HeavyM\ShadersLibrary to use them.
 In case you want to contribute, instead of cloning this repo, fork it and :
 Add shaders by copying Template.fs, edit, test, then share by doing a pull request!
 
-##### Note:
+##### Thumbnails:
+png / jpg / gif size 120 x 68px
+
+##### Standard uniforms:
 HeavyM expect standard uniform variables named RENDERSIZE, TIME...
 To ease the shader editing process, I propose to use defines to match shadertoy uniform variable names:
 ```
@@ -19,7 +22,7 @@ To ease the shader editing process, I propose to use defines to match shadertoy 
 #define iTime TIME 
 ```
 
-##### Note:
+##### Other unicorns:
 iMouse, IDate and some other uniform variables are not currently supported, so I add them in the INPUTS section:
 ```
 "INPUTS": [
@@ -32,7 +35,8 @@ iMouse, IDate and some other uniform variables are not currently supported, so I
 		}
     ]    
 ```
+
+![Result:](https://raw.github.com/sophiadigitalart/ShadersLibrary/master/iMouse.gif)
+
 Check [this shader] for more input types. (https://raw.github.com/sophiadigitalart/ShadersLibrary/master/ExplodedMandelbulb.fs)
 
-![Preview]
-(https://raw.github.com/sophiadigitalart/ShadersLibrary/master/iMouse.gif)
