@@ -1,6 +1,6 @@
 # ISF Shader Library for HeavyM
 
-![Preview](https://raw.github.com/sophiadigitalart/ShadersLibrary/master/HeavyMshadertoy.jpg)
+![Preview](HeavyMshadertoy.jpg)
 
 Shader library for HeavyM, ISF format, mostly from https://Shadertoy.com
 
@@ -36,7 +36,7 @@ iMouse, IDate and some other uniform variables are not currently supported, so I
     ]    
 ```
 
-![Result:](https://raw.github.com/sophiadigitalart/ShadersLibrary/master/iMouse.gif)
+![Result:](iMouse.gif)
 
-Check [this shader] for more input types. (https://raw.github.com/sophiadigitalart/ShadersLibrary/master/ExplodedMandelbulb.fs)
+Check this [shader](ExplodedMandelbulb.fs) for more input types. 
 
