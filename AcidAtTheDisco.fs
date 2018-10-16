@@ -1,9 +1,9 @@
 /*{
-	"DESCRIPTION": "https://www.shadertoy.com/view/4sfXRB",
 	"CREDIT" : "AcidAtTheDisco by Author",
 	"CATEGORIES" : [
 		"ci"
 		], 
+	"DESCRIPTION": "https://www.shadertoy.com/view/4sfXRB",
 	"INPUTS": [
 		{
 			"NAME" :"iMouse",

@@ -1,8 +1,9 @@
-/*{"DESCRIPTION": "https://www.shadertoy.com/view/ldj3Rd",
+/*{ 
 "CREDIT" : "AnyArrayIndex by Author",
 "CATEGORIES" : [
 "ci"
 ],
+"DESCRIPTION": "https://www.shadertoy.com/view/ldj3Rd",
  "INPUTS": [
 {
 "NAME": "iZoom",
@@ -66,24 +67,24 @@ vec3 AAIGetSMColor(float c, float s)
 // https://www.shadertoy.com/view/ldj3Rd
 void mainImage(out vec4 fragColor, in vec2 fragCoord)
 {
-    vec2 uv = fragCoord.xy/RENDERSIZE.xy;
+    vec2 uv = iZoom *  fragCoord.xy/RENDERSIZE.xy;
    vec3 col=vec3(0.);
    // define the colors  
-   //  AAIPalette[6]=vec3(iColor.r*255,000,000)/255.;
-   //  AAIPalette[5]=vec3(iColor.r*255,iColor.g*127,000)/255.;
-   //  AAIPalette[4]=vec3(iColor.r*255,iColor.g*255,000)/255.;
-   //  AAIPalette[3]=vec3(000,iColor.g*255,000)/255.;
-   //  AAIPalette[2]=vec3(000,000,iColor.b*255)/255.;
-   //  AAIPalette[1]=vec3(iColor.r*075,000,iColor.b*130)/255.;
-   //  AAIPalette[0]=vec3(iColor.r*143,000,iColor.b*255)/255.;
+    AAIPalette[6]=vec3(iColor.r*255,000,000)/255.;
+    AAIPalette[5]=vec3(iColor.r*255,iColor.g*127,000)/255.;
+    AAIPalette[4]=vec3(iColor.r*255,iColor.g*255,000)/255.;
+    AAIPalette[3]=vec3(000,iColor.g*255,000)/255.;
+    AAIPalette[2]=vec3(000,000,iColor.b*255)/255.;
+    AAIPalette[1]=vec3(iColor.r*075,000,iColor.b*130)/255.;
+    AAIPalette[0]=vec3(iColor.r*143,000,iColor.b*255)/255.;
     // rainbow
-     AAIPalette[6]=vec3(255,000,000)/255.;
-     AAIPalette[5]=vec3(255,127,000)/255.;
-     AAIPalette[4]=vec3(255,255,000)/255.;
-     AAIPalette[3]=vec3(000,255,000)/255.;
-     AAIPalette[2]=vec3(000,000,255)/255.;
-     AAIPalette[1]=vec3(075,000,130)/255.;
-     AAIPalette[0]=vec3(143,000,255)/255.;
+    //  AAIPalette[6]=vec3(255,000,000)/255.;
+    //  AAIPalette[5]=vec3(255,127,000)/255.;
+    //  AAIPalette[4]=vec3(255,255,000)/255.;
+    //  AAIPalette[3]=vec3(000,255,000)/255.;
+    //  AAIPalette[2]=vec3(000,000,255)/255.;
+    //  AAIPalette[1]=vec3(075,000,130)/255.;
+    //  AAIPalette[0]=vec3(143,000,255)/255.;
    vec2 p=(uv-.5);
    p.x*=RENDERSIZE.x/RENDERSIZE.y;
    
