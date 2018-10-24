@@ -6,7 +6,8 @@ Shader library for HeavyM, ISF format, mostly from https://Shadertoy.com
 
 ##### Usage:
 Git clone in Documents\HeavyM\ShadersLibrary to use them.
-For example, in the terminal/cmd/ps (needs git installed) : git clone https://github.com/sophiadigitalart/ShadersLibrary.git then copy the folder contents in YourDocumentsFolder/HeavyM/ShadersLibrary 
+For example, in the terminal/cmd/ps (needs git installed) : 
+```git clone https://github.com/sophiadigitalart/ShadersLibrary.git``` then copy the folder contents in YourDocumentsFolder/HeavyM/ShadersLibrary 
 
 ##### Contributing:
 In case you want to contribute, instead of cloning this repo, fork it and :
