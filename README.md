@@ -3,6 +3,7 @@
 ![Preview](HeavyMshadertoy.jpg)
 
 Shader library for HeavyM, ISF format, mostly from https://Shadertoy.com
+Needs HeavyM version 1.10 and later.
 
 ##### Usage:
 Git clone in Documents\HeavyM\ShadersLibrary to use them.
