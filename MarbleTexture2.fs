@@ -75,7 +75,7 @@ float map(in vec3 p, vec2 sctime) {
 
 vec3 raymarch( in vec3 ro, vec3 rd, vec2 tminmax , vec2 sctime)
 {
-    //tminmax += vec2(1.,1.) * sin( iTime * 1.3)*3.0;
+    //tminmax += vec2(1.,1.) * sin( TIME * 1.3)*3.0;
    	vec3 one3 = vec3(1.,1.,1.);
     vec3 t = one3 * tminmax.x;
     
@@ -121,7 +121,7 @@ void main(void)
     vec2 tmm = iSphere( ro, rd, vec4(0.,0.,0.,2.) );
 
 	// raymarch
-    vec3 col = raymarch(ro,rd,tmm, vec2(sin(iTime), cos(iTime)));
+    vec3 col = raymarch(ro,rd,tmm, vec2(sin(TIME), cos(TIME)));
     	
 	// shade    
     col =  .5 *(log(1.+col));

@@ -9,11 +9,9 @@
 }*/
 
 #define iResolution RENDERSIZE
-#define iTime TIME
-
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
-	float time = iTime * 0.25;
+	float time = TIME * 0.25;
     vec2 uv = (2. * fragCoord.xy - iResolution.xy) / iResolution.y;
     uv *= vec2(0.35, 1.);
     

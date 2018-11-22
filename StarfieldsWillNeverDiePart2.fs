@@ -82,7 +82,7 @@ void main(void)
 		vec2 p = iZoom * (2.0 * gl_FragCoord.xy - RENDERSIZE.xy) / min(RENDERSIZE.x, RENDERSIZE.y);
 		vec3 v = vec3(p, 1.0 - length(p) * 0.2);
 	
-		float ta = iTime * 0.1;
+		float ta = TIME * 0.1;
 		mat3 m=mat3(
 			0.0,1.0,0.0,
 			-sin(ta),0.0,cos(ta),
@@ -99,7 +99,7 @@ void main(void)
 		float bright = pow(rand(vec2(slice, 3.0)), 5.0);
 	
 		float z = dist / length(v.xy) * v.z;
-		float Z = mod(z + phase + iTime * 0.6, 1.0);
+		float Z = mod(z + phase + TIME * 0.6, 1.0);
 		float d = sqrt(z * z + dist * dist);
 	
 		float c = exp(-Z * 40.0 + 0.3) / (d * d + 1.0);

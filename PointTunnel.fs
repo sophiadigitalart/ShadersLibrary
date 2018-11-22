@@ -75,7 +75,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     float repAngle = TAU / float(RING_POINTS);
     float pointSize = POINT_SIZE/2.0/iResolution.y;
     
-    float camZ = iTime * SPEED;
+    float camZ = TIME * SPEED;
     vec2 camOffs = TunnelPath(camZ);
     
     for(int i = 1;i <= TUNNEL_LAYERS;i++)

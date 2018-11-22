@@ -78,8 +78,8 @@ float de(vec3 p) {
 
     float d = -length(p.xy) + 4.;// tunnel (inverted cylinder)
 
-    p.xy += vec2(cos(p.z + iTime)*sin(iTime), cos(p.z + iTime));
-    p.z -= 6. + iTime * 6.;
+    p.xy += vec2(cos(p.z + TIME)*sin(TIME), cos(p.z + TIME));
+    p.z -= 6. + TIME * 6.;
     d = min(d, dot(p, normalize(sign(p))) - 1.); // octahedron (LJ's formula)
     // I added this in the last 1-2 minutes, but I'm not sure if I like it actually!
 
@@ -95,7 +95,7 @@ void main(void)
     vec2 uv = iZoom * gl_FragCoord.xy / RENDERSIZE.xy; 
     uv.x *= RENDERSIZE.x / RENDERSIZE.y;
 
-    float dt = iTime * 6.;
+    float dt = TIME * 6.;
     vec3 ro = vec3(0, 0, -5. + dt);
     vec3 ta = vec3(0, 0, dt);
 
@@ -146,7 +146,7 @@ void main(void)
     vec3 c = vec3(1) * length(mask * vec3(1., .5, .75));
     c = mix(vec3(.2, .2, .7), vec3(.2, .1, .2), c);
     c += g * .4;
-    c.r += sin(iTime)*.2 + sin(p.z*.5 - iTime * 6.);// red rings
+    c.r += sin(TIME)*.2 + sin(p.z*.5 - TIME * 6.);// red rings
     c = mix(c, vec3(.2, .1, .2), 1. - exp(-.001*t*t));// fog
 
     fragColor = vec4(c, 1.0);

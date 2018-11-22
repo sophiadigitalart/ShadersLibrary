@@ -63,7 +63,7 @@ float dist(vec2 uv, vec2 c){
 
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
-   float t = iTime;
+   float t = TIME;
    vec2 uv = fragCoord.xy / iResolution.xy;
    vec2 c = vec2(.5);
    float d0 = dist(uv, c);

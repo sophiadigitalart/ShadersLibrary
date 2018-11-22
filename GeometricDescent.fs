@@ -102,9 +102,9 @@ float scene(vec3 p)
 
 
     p = mod(p,4.)-2.;
-    p.xy = rotate(p.xy, iTime+spinOffset1);
-    p.yz = rotate(p.yz, iTime+spinOffset2);
-    p.zx = rotate(p.zx, iTime+spinOffset3);
+    p.xy = rotate(p.xy, TIME+spinOffset1);
+    p.yz = rotate(p.yz, TIME+spinOffset2);
+    p.zx = rotate(p.zx, TIME+spinOffset3);
 
     if (shape < .25) {
         return min(
@@ -131,7 +131,7 @@ float scene(vec3 p)
 
 void main(void)
 {  
-vec2 uv = iZoom * fragCoord.xy / RENDERSIZE.xy - .5;
+vec2 uv = iZoom * gl_FragCoord.xy / RENDERSIZE.xy - .5;
     uv.x *= RENDERSIZE.x / RENDERSIZE.y;
 
     uv *= 1.+length(uv)*.5;
@@ -142,10 +142,10 @@ vec2 uv = iZoom * fragCoord.xy / RENDERSIZE.xy - .5;
     //cam.yz = rotate(cam.yz, .3);
     //dir.yz = rotate(dir.yz, .3);
 
-    cam.z = iTime * 4.;
-    dir.xy = rotate(dir.xy, iTime*.1);
-    //dir.yz = rotate(dir.yz, iTime*.3);
-    //dir.zx = rotate(dir.zx, iTime*.3);
+    cam.z = TIME * 4.;
+    dir.xy = rotate(dir.xy, TIME*.1);
+    //dir.yz = rotate(dir.yz, TIME*.3);
+    //dir.zx = rotate(dir.zx, TIME*.3);
 
     float t = 0.;
     float k = 0.;
@@ -169,7 +169,7 @@ vec2 uv = iZoom * fragCoord.xy / RENDERSIZE.xy - .5;
     float light = pow(max(0.,n.x*.5+.5),2.);
     float vignette = smoothstep(2.,0.,length(uv));
     vec3 a = mix(vec3(.01,.01,.1),vec3(0,1,1),iterFog);
-    vec3 b = mix(vec3(0,0,0),vec3(1,sin(iTime*.4)*.5+.5,cos(iTime*.4)*.5+.5),light*iterFog*4.);
-    fragColor.rgb = a + b;
-    fragColor *= vignette;
+    vec3 b = mix(vec3(0,0,0),vec3(1,sin(TIME*.4)*.5+.5,cos(TIME*.4)*.5+.5),light*iterFog*4.);
+    fragColor = vec4(vec3(a + b), 1.0) * vignette;
+    
 }

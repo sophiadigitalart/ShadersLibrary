@@ -105,7 +105,7 @@ void main(void)
 {
    vec2 p = iZoom * (gl_FragCoord.xy*2.0 - RENDERSIZE.xy) / min(RENDERSIZE.x,RENDERSIZE.y);   
     p*=5.0; 
-    vec3 c=polarCoordinate(vec3(p,iTime));
+    vec3 c=polarCoordinate(vec3(p,TIME));
     vec3 color=vec3(octavePerlinNoise(c))*vec3(p,1.0);
     fragColor=vec4(color,1.0);
 }

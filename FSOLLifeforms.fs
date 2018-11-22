@@ -64,17 +64,17 @@ float smin(float a, float b, float k) {
 #define nsin(x) (.5+.5*sin(x))
 
 float de(vec3 p) {
-    p.xz *= r2d(iTime*.3);
+    p.xz *= r2d(TIME*.3);
     // p.zy*=r2d(3.14*.25);
 
     const float num_tentacles = 5.;
     float sz_tentacles = .15;
     float sz_blob = .5;
 
-    float ease_tentacle = 1.;//nsin(iTime)*1.5;
-    float ease_blob = 1.;//.2*nsin(iTime);
+    float ease_tentacle = 1.;//nsin(TIME)*1.5;
+    float ease_blob = 1.;//.2*nsin(TIME);
 
-    float dis_speed = iTime * 1.5;//sin(iTime*1.5)*2.;
+    float dis_speed = TIME * 1.5;//sin(TIME*1.5)*2.;
 
     float sph = length(p) - sz_blob - ease_blob;
     float od = dot(p, normalize(sign(p))) - sz_blob - ease_blob;
@@ -110,7 +110,7 @@ float de(vec3 p) {
 
     // additionnal tentacles
     p = q;
-    p.x += sin(sin(iTime*1.5) + p.y*1.*ease_tentacle);
+    p.x += sin(sin(TIME*1.5) + p.y*1.*ease_tentacle);
     d = smin(d, length(p.xz) - sz_tentacles, .95);
 
     return smin(d, sph, .7);
@@ -170,7 +170,7 @@ float fbm(vec3 p) {
 void main(void)
 {
     vec2 uv = iZoom * gl_FragCoord.xy / RENDERSIZE.xy; 
-    vec3 ro = vec3(0, 0, -5.);//-nsin(iTime)*8.
+    vec3 ro = vec3(0, 0, -5.);//-nsin(TIME)*8.
     vec3 rd = normalize(vec3(uv, 1));
 
     vec3 p;
@@ -184,10 +184,10 @@ void main(void)
     }
 
     vec3 bg_rd = rd;
-    bg_rd.xz *= r2d(iTime*.005);
-    bg_rd.zy *= r2d(-iTime * .2);
+    bg_rd.xz *= r2d(TIME*.005);
+    bg_rd.zy *= r2d(-TIME * .2);
 
-    vec3 bg = smoothstep(0., 1., vec3(1.5) * fbm(bg_rd*.5 + iTime * .06 + fbm(bg_rd)*.2));
+    vec3 bg = smoothstep(0., 1., vec3(1.5) * fbm(bg_rd*.5 + TIME * .06 + fbm(bg_rd)*.2));
     vec3 col = sqrt(bg);
     if (t <= maxt) {
         vec3 n = normal(p);

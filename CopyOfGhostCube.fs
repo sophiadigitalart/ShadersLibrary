@@ -9,6 +9,10 @@
 			"NAME": "inputImage",
 			"TYPE" : "image"
 		},
+			{
+		"NAME": "iChannel0",
+		"TYPE" : "image"
+		},
 		{
 			"NAME": "iZoom",
 			"TYPE" : "float",
@@ -53,7 +57,7 @@ float sdBox( vec3 p, vec3 b )
 
 float map(vec3 p)
 {
-    float t = iTime;
+    float t = TIME;
     p.xz *= mat2(cos(t), sin(t), -sin(t), cos(t));
     p.xy *= mat2(cos(t), sin(t), -sin(t), cos(t));
     p.yz *= mat2(cos(t), sin(t), -sin(t), cos(t));
@@ -94,7 +98,7 @@ void main(void)
     
     vec3 fog = vec3(1.0) / (1.0 + t * t * 0.1) * 0.1;
     
-    float c = iTime * 5.0 + uv.x;
+    float c = TIME * 5.0 + uv.x;
     fog *= vec3(sin(c)*cos(c*2.0), cos(c)*cos(c*2.0), sin(c)) * 0.5 + 0.5;
     
     fog += old.xyz * 0.6 + old2.xyz * 0.37;
