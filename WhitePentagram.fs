@@ -71,7 +71,7 @@ void main() {
     d = smoothstep(0.0, f, d);
 
     vec3 c = hsv2rgb(vec3(mod(d + TIME / 8.0 + (1.0 - length(st) / 4.0), 1.0), 1.0, 0.9));
-    c = mix(c, vec3(0, 0, 0), length(st) * 0.3);
+    c = mix(c, iColor.rgb, length(st) * 0.3);
 
     fragColor = vec4(d,d,d,1.0);
 }
