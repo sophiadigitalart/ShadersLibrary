@@ -24,6 +24,13 @@
 			"DEFAULT" : 19.0
 		},
 		{
+			"NAME": "iTimeMultiplier",
+			"TYPE" : "float",
+			"MIN" : 0.01,
+			"MAX" : 10.0,
+			"DEFAULT" : 1.0
+		},
+		{
 			"NAME" :"iMouse",
 			"TYPE" : "point2D",
 			"DEFAULT" : [0.0, 0.0],
@@ -124,7 +131,7 @@ void main(void)
 {  		
     vec2 uv = (gl_FragCoord.xy - .5*RENDERSIZE.xy) / -RENDERSIZE.y*iZoom;
 
-    float dt = TIME * 6.;
+    float dt = TIME * iTimeMultiplier;
     vec3 ro = vec3(0, 0, -3. + dt);
 	vec3 ta = vec3(0, 0, dt);
 	ro.x += path(ro.z);

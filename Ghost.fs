@@ -95,7 +95,7 @@ void main(void)
 		vec2 uv = (gl_FragCoord.xy/RENDERSIZE.xy -.5)*iZoom;
     uv.x*=RENDERSIZE.x/RENDERSIZE.y;
     
-    float dt = TIME * 6.;
+    float dt = TIME * 0.1;
     vec3 ro = vec3(0,0, -3. + dt);
     vec3 ta = vec3(0, 0, dt);
     
