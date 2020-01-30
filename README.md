@@ -44,4 +44,4 @@ iMouse, IDate and some other uniform variables are not currently supported, so I
 Check this [shader](ExplodedMandelbulb.fs) for more input types. 
 
 ##### Debug:
-When you have an error on line x, substract 65 to have the real line in your shader file.
+When you have an error on line x, substract 52(was 65) to have the real line in your shader file.

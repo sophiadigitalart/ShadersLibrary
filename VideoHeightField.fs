@@ -103,13 +103,14 @@ intersectBox(vec3 ro, vec3 rd, vec3 boxmin, vec3 boxmax, out float tnear, out fl
 	return hit;
 }
 
+/*
 float luminance(sampler2D tex, vec2 uv)
 {
 	//BL vec3 c = textureLod(tex, uv, 0.0).xyz;
 	vec3 c = IMG_NORM_PIXEL(inputImage, uv).xyz;	
 	//vec3 c = vec3(1.0);	
     return dot(c, vec3(0.33, 0.33, 0.33));
-}
+}*/
 
 vec2 worldToTex(vec3 p)
 {

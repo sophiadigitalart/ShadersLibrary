@@ -1,5 +1,5 @@
 /*{
-	"CREDIT" : "Simple Video by Bruce Lane",
+	"CREDIT" : "Simple Asset by Bruce Lane",
 	"CATEGORIES" : [
 		"ci"
 	],
