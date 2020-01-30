@@ -12,8 +12,8 @@
 		{
 			"NAME": "iZoom",
 			"TYPE" : "float",
-			"MIN" : -3.0,
-			"MAX" : 1.0,
+			"MIN" : 0.1,
+			"MAX" : 2.0,
 			"DEFAULT" : 1.0
 		},
 		{
