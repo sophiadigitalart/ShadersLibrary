@@ -5,7 +5,11 @@
 	],
 	"DESCRIPTION": "",
 	"INPUTS": [
-
+		{
+			"NAME": "background",
+			"TYPE": "bool",
+			"DEFAULT": false
+		},
 		{
 			"NAME": "blurAmount",
 			"TYPE": "float"
@@ -13,8 +17,8 @@
 		{
 			"NAME": "iZoom",
 			"TYPE" : "float",
-			"MIN" : 0.0,
-			"MAX" : 1.0,
+			"MIN" : 0.1,
+			"MAX" : 2.0,
 			"DEFAULT" : 1.0
 		},
 		{
@@ -115,7 +119,7 @@ void main(void)
 	p.x *= RENDERSIZE.x/RENDERSIZE.y;
 	p*=4.;
 	
-    float rz = dualfbm(p);
+    float rz = background ? dualfbm(p) : 0.1;
 	
 	//rings
 	p /= exp(mod(tm*10.,3.14159));
