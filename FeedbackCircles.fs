@@ -62,7 +62,7 @@ vec3 subImg(in vec2 fCoord, float xs,float ys, float zs){
     xy+=vec2(sin(TIME*xs)*0.1,cos(TIME*ys)*0.1);//move
     xy*=(1.1+sin(TIME*zs)*0.1);//scale
     xy+=0.5;
-    return texture2D(iChannel0,xy).xyz;
+    return IMG_NORM_PIXEL(inputImage,xy).xyz;
 }
 
 vec3 drawCircle(in vec2 xy){

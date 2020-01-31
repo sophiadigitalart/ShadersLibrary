@@ -17,6 +17,13 @@
 			"DEFAULT" : 1.0
 		},
 		{
+			"NAME": "iMultiplier",
+			"TYPE" : "float",
+			"MIN" : 0.1,
+			"MAX" : 2.0,
+			"DEFAULT" : 1.0
+		},
+		{
 			"NAME": "iSteps",
 			"TYPE" : "float",
 			"MIN" : 2.0,
@@ -103,15 +110,6 @@ intersectBox(vec3 ro, vec3 rd, vec3 boxmin, vec3 boxmax, out float tnear, out fl
 	return hit;
 }
 
-/*
-float luminance(sampler2D tex, vec2 uv)
-{
-	//BL vec3 c = textureLod(tex, uv, 0.0).xyz;
-	vec3 c = IMG_NORM_PIXEL(inputImage, uv).xyz;	
-	//vec3 c = vec3(1.0);	
-    return dot(c, vec3(0.33, 0.33, 0.33));
-}*/
-
 vec2 worldToTex(vec3 p)
 {
 	vec2 uv = p.xz*0.5+0.5;
@@ -124,7 +122,7 @@ float heightField(vec3 p)
 	//return sin(p.x*4.0)*sin(p.z*4.0);
 	//return luminance(0, p.xz*0.5+0.5)*2.0-1.0;
 	//return luminance(inputImage, worldToTex(p))*0.5;
-	return IMG_NORM_PIXEL(inputImage,  worldToTex(p)).x;
+	return IMG_NORM_PIXEL(inputImage,  worldToTex(p)).x * iMultiplier;
 }
 
 bool traceHeightField(vec3 ro, vec3 rayStep, out vec3 hitPos)
@@ -150,7 +148,7 @@ bool traceHeightField(vec3 ro, vec3 rayStep, out vec3 hitPos)
 
 vec3 background(vec3 rd)
 {
-     return mix(vec3(1.0, 0.0, 1.0), iColor.rgb, abs(rd.y));
+     return mix(vec3( 0.1), iColor.rgb, abs(rd.y));
 }
 
 void main(void)
