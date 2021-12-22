@@ -95,6 +95,6 @@ void main(void) {
 		color = (vec3(hit, (high) * (abs(sin((t) / 100.0))), (hit) * (mix(0.1, 1.2, (float(temp_2)) / 25.0)))) + (color);
 		t = (t) + 333.3333;
 	}
-	fragColor = vec4((color) / 2.0, 1.0);
+	gl_FragColor = vec4((color) / 2.0, 1.0);
 }
 

@@ -128,7 +128,7 @@ void main(void)
 	//final color
 	vec3 col = vec3(.2,0.1,0.4)/rz;
 	col=pow(abs(col),vec3(.99));
-	fragColor = vec4(col,1.);	
+	gl_FragColor = vec4(col,1.);
 	    
   
 }

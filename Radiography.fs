@@ -134,5 +134,5 @@ void main(void)
     c += g * .03; // glow trick from balkhan https://www.shadertoy.com/view/4t2yW1
     c = mix(c, vec3(.1, .1, .12), 1. - exp(-.07*t*t)); // fog
 
-    fragColor = vec4(c, 1);
+    gl_FragColor = vec4(c, 1);
 }

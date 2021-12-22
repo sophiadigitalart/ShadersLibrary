@@ -170,6 +170,6 @@ vec2 uv = iZoom * gl_FragCoord.xy / RENDERSIZE.xy - .5;
     float vignette = smoothstep(2.,0.,length(uv));
     vec3 a = mix(vec3(.01,.01,.1),vec3(0,1,1),iterFog);
     vec3 b = mix(vec3(0,0,0),vec3(1,sin(TIME*.4)*.5+.5,cos(TIME*.4)*.5+.5),light*iterFog*4.);
-    fragColor = vec4(vec3(a + b), 1.0) * vignette;
+    gl_FragColor = vec4(vec3(a + b), 1.0) * vignette;
     
 }

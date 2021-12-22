@@ -160,5 +160,5 @@ void main(void)
 	vec3 rd = normalize(p.x*rgt + p.y*up + 2.3*eye);
 	
 	vec4 col = vmarch(ro, rd);
-    fragColor = vec4(col.rgb, 1.0);
+    gl_FragColor = vec4(col.rgb, 1.0);
 }

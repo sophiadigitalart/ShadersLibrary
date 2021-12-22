@@ -302,6 +302,6 @@ void main(void)
   //  int key = int(gl_FragCoord.x*26.0/RENDERSIZE.x);
   //  if (keypress(CHAR_A+key)) color = vec3(1,1,0);
   //}
-  fragColor = vec4(color,1);
+  gl_FragColor = vec4(color,1);
 	
 }

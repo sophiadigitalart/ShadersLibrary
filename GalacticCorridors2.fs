@@ -336,8 +336,8 @@ void main(void)
     
     antispeckle = pow(antispeckle, 1.0/float(max_iterations));
     
-    fragColor.rgb = (color+accum/sum)*(1.0-border);
-    fragColor.a = 1.0;
+    gl_FragColor.rgb = (color+accum/sum)*(1.0-border);
+    gl_FragColor.a = 1.0;
     
-    fragColor = hit;
+    gl_FragColor = hit;
 }

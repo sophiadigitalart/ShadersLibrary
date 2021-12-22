@@ -60,5 +60,5 @@ void main(void)
    brightness += .25 + .25 * sin(pow(dist,.5) / .707 * PI * 32.0 - TIME * PI * .5);
    if (dist < .01) brightness *= (dist / .01);
 
-   fragColor = vec4(brightness, brightness, brightness,1.0);
+   gl_FragColor = vec4(brightness, brightness, brightness,1.0);
 }

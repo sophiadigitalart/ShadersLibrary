@@ -161,5 +161,5 @@ void main(void)
     col.b += sin(p.z*.1)*.1;
 	col = mix(col, bg, 1. - exp(-.01*t*t));
     
-	fragColor = vec4(col, 1.);
+	gl_FragColor = vec4(col, 1.);
 }

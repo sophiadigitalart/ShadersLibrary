@@ -48,5 +48,5 @@ void main(void){
 	float d = distance(gl_FragCoord.xy, RENDERSIZE.xy * vec2(0.5,0.5).xy);
 	float x = sin(5.0+0.1*d + TIME*-4.0) * 5.0;
 	x = clamp( x, 0.0, 1.0 );
-	fragColor = vec4(x, x, x, 1.0);
+	gl_FragColor = vec4(x, x, x, 1.0);
 }
