@@ -5,7 +5,7 @@
 		"Your category"
 	],
 	"INPUTS": [
-	],
+	]
 }*/
 
 #define iResolution RENDERSIZE

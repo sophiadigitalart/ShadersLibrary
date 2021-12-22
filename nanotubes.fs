@@ -5,7 +5,7 @@
 		"Your category"
 	],
 	"INPUTS": [
-	],
+	]
 }*/
 
 // With tweaks from fernlightning

@@ -52,7 +52,7 @@
 			"TYPE": "bool",
 			"DEFAULT": 0.0
 		}
-	],
+	]
 }*/
 
 #define iResolution RENDERSIZE

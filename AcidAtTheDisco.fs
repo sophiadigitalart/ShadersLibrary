@@ -12,7 +12,7 @@
 			"MAX" : [640.0, 480.0],
 			"MIN" : [0.0, 0.0]
 		}
-	],
+	]
 }*/
 	// https://www.shadertoy.com/view/4sfXRB
 void mainImage(out vec4 fragColor, in vec2 fragCoord)

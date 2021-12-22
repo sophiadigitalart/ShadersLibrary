@@ -36,7 +36,7 @@
 			0.0, 
 			1.0
 		]}
-	],
+	]
 }
 */
 // https://www.shadertoy.com/view/XsjXRm

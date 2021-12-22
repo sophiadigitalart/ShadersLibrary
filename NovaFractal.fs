@@ -1,35 +1,32 @@
 /*{
-"CREDIT" : "NovaFractal by gleurop",
-"CATEGORIES" : [
-"ci"
-],
-"DESCRIPTION": "https://www.shadertoy.com/view/Xsl3DM",
- "INPUTS": [
-{
-"NAME": "iChannel0",
-"TYPE" : "image"
-},
-{
-"NAME": "iZoom",
-"TYPE" : "float",
-"MIN" : 0.0,
-"MAX" : 1.0,
-"DEFAULT" : 1.0},
- {"NAME" :"iMouse",
-"TYPE" : "point2D",
-"DEFAULT" : [0.0, 0.0],
-"MAX" : [640.0, 480.0],
-"MIN" : [0.0, 0.0]},
-{
-"NAME": "iColor", 
-"TYPE" : "color", 
-"DEFAULT" : [
-0.7, 
-0.5, 
-0.0, 
-1.0
-]}
-],
+  "CREDIT": "NovaFractal by gleurop",
+  "CATEGORIES": ["ci"],
+  "DESCRIPTION": "https://www.shadertoy.com/view/Xsl3DM",
+  "INPUTS": [
+    {
+      "NAME": "iChannel0",
+      "TYPE": "image"
+    },
+    {
+      "NAME": "iZoom",
+      "TYPE": "float",
+      "MIN": 0.0,
+      "MAX": 1.0,
+      "DEFAULT": 1.0
+    },
+    {
+      "NAME": "iMouse",
+      "TYPE": "point2D",
+      "DEFAULT": [0.0, 0.0],
+      "MAX": [640.0, 480.0],
+      "MIN": [0.0, 0.0]
+    },
+    {
+      "NAME": "iColor",
+      "TYPE": "color",
+      "DEFAULT": [0.7, 0.5, 0.0, 1.0]
+    }
+  ]
 }
 */
 

@@ -43,7 +43,7 @@
 				1.0
 			]
 		}
-	],
+	]
 }
 */
 // Promethean by nimitz (twitter: @stormoid)

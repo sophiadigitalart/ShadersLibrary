@@ -52,7 +52,7 @@
 			"TYPE": "bool",
 			"DEFAULT": 0.0
 		}
-	],
+	]
 }*/
 
 vec3 look(vec2 xy, vec3 origin, vec3 target)
