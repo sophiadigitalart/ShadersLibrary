@@ -131,29 +131,24 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 // Texture mapping parameters
-int sampler = 0;
-vec2 toffset = vec2(0); // texture offset
-//float tscale = 0.1;     // texture coords scale
-//float dscale = 1.1;     // displacement scale
-
+// const int sampler_id = 0;
 // Lighting parameters
-vec3 light = vec3(1,10,-4);
-float ambient = 0.6;
-float diffuse = 0.4;
-float specular = 0.4;
-float specularpow = 4.0;
-vec3 specularcolor = vec3(1);
+const float ambient = 0.6;
+const float diffuse = 0.4;
+const float specular = 0.4;
+const float specularpow = 4.0;
+const vec3 specularcolor = vec3(1);
 
 // Raymarching parameters
-float MAX_DISTANCE = 8.0;
-float MIN_DISTANCE = 0.01;
-int MAXSTEPS = 500;
-float limit = 2.5;
-float slow = 0.1;
+const float MAX_DISTANCE = 8.0;
+const float MIN_DISTANCE = 0.01;
+const int MAXSTEPS = 500;
+const float limit = 2.5;
+const float slow = 0.1;
 
 // Geometry
 
-float PI = 3.14159;
+const float PI = 3.14159;
 
 vec2 rotate(vec2 p, float t) {
   return p * cos(t) + vec2(p.y, -p.x) * sin(t);
@@ -161,7 +156,7 @@ vec2 rotate(vec2 p, float t) {
 
 // Adapted from: https://www.shadertoy.com/view/MlXcRl but somewhat modified.
 // Uses global tscale and toffset variables.
-vec4 triplanar(vec3 n, bool adjust3d, bool rescale) {
+vec4 triplanar(vec3 n, vec2 toffset, bool adjust3d, bool rescale) {
   if (doflipz) n.z = -n.z;
   vec4 texx = IMG_NORM_PIXEL(inputImage, tscale*(0.5*n.yz+0.5+toffset));
   vec4 texy = IMG_PIXEL(inputImage, tscale*(0.5*n.zx+0.5+toffset));
@@ -186,9 +181,9 @@ vec4 triplanar(vec3 n, bool adjust3d, bool rescale) {
   return mat4(texx,texy,texz,vec4(0))*vec4(weights,0);
 }
 
-float sphereDf(vec3 p, vec3 centre, float radius) {
+float sphereDf(vec3 p, vec3 centre, float radius, vec2 toffset) {
   vec3 n = normalize(p-centre);
-  vec3 tex = triplanar(n,doadjust3d,dorescale).xyz;
+  vec3 tex = triplanar(n,toffset,doadjust3d,dorescale).xyz;
   float k = sin(0.25*PI*(TIME-9.5));//!dovariabledisplacement? 1.0: 
   if (do3d) {
     vec3 displacement = tex;
@@ -203,24 +198,24 @@ float sphereDf(vec3 p, vec3 centre, float radius) {
   }
 }
 
-float sceneDf(vec3 p) {
+float sceneDf(vec3 p, vec2 toffset) {
   // Sphere parameters
   vec3 centre = vec3(0);
   float radius = 1.0;
-  return sphereDf(p,centre,radius);
+  return sphereDf(p,centre,radius, toffset);
 }
 
-vec3 calcNormal(vec3 p)
+vec3 calcNormal(vec3 p, vec2 toffset)
 {
   float e = 0.01;
-  vec3 normal = vec3(sceneDf(vec3(p.x+e,p.y,p.z)) - sceneDf(vec3(p.x-e,p.y,p.z)),
-                     sceneDf(vec3(p.x,p.y+e,p.z)) - sceneDf(vec3(p.x,p.y-e,p.z)),
-                     sceneDf(vec3(p.x,p.y,p.z+e)) - sceneDf(vec3(p.x,p.y,p.z-e)));
+  vec3 normal = vec3(sceneDf(vec3(p.x+e,p.y,p.z), toffset) - sceneDf(vec3(p.x-e,p.y,p.z), toffset),
+                     sceneDf(vec3(p.x,p.y+e,p.z), toffset) - sceneDf(vec3(p.x,p.y-e,p.z), toffset),
+                     sceneDf(vec3(p.x,p.y,p.z+e), toffset) - sceneDf(vec3(p.x,p.y,p.z-e), toffset));
   return normalize(normal);
 }
 
-vec3 processLighting(vec3 baseColor, vec3 dir, vec3 surfacePoint) {
-  vec3 normal = calcNormal(surfacePoint);
+vec3 processLighting(vec3 baseColor, vec3 dir, vec3 light, vec2 toffset, vec3 surfacePoint) {
+  vec3 normal = calcNormal(surfacePoint, toffset);
   
   vec3 color = baseColor*ambient;
   if (dot(light,normal) > 1e-4) {
@@ -234,14 +229,14 @@ vec3 processLighting(vec3 baseColor, vec3 dir, vec3 surfacePoint) {
   return color;
 }
 
-bool marchRay(vec3 startPos, vec3 dir, out vec3 color) {
+bool marchRay(vec3 startPos, vec3 dir, vec3 light, vec2 toffset, out vec3 color) {
   vec3 p = startPos;
   bool checksteps = false;//keypress(CHAR_Q);
   for (int i = 0; i < MAXSTEPS; i++) {
     //assert(i < MAXSTEPS-1);
     //if (checksteps) assert(i < 200);
     if (length(p) > MAX_DISTANCE) return false;
-    float dist = sceneDf(p);
+    float dist = sceneDf(p, toffset);
     if (dist <= MIN_DISTANCE) break;
     // Proceed cautiously when "close" to surface
     if (dist > limit) dist = dist-limit+slow;
@@ -250,13 +245,13 @@ bool marchRay(vec3 startPos, vec3 dir, out vec3 color) {
   }
   vec3 baseColor = vec3(0.8);
   //if (!keypress(CHAR_U)) 
-  baseColor = triplanar(normalize(p),doadjust3d,dorescale).xyz;
+  baseColor = triplanar(normalize(p),toffset,doadjust3d,dorescale).xyz;
   //if (keypress(CHAR_A)) {
     // Show axes
     //float d = min(abs(p.x),min(abs(p.y),abs(p.z)));
     //if (d < 0.02) baseColor = vec3(0.5,0,0);
   //}
-  color = processLighting(baseColor,dir,p);
+  color = processLighting(baseColor,dir,light,toffset,p);
   return true;
 }
 
@@ -276,15 +271,14 @@ vec3 transform(vec3 p) {
 
 
 void main(void)
-{
-    
-  toffset = 0.02*TIME*vec2(1,1.1);
-
-    
+{    
+  const vec2 toffset = 0.02*TIME*vec2(1,1.1);
   vec3 eye = vec3(0,0,-3);
   eye *= iZoom;
   vec2 uv = (2.0*gl_FragCoord.xy-RENDERSIZE.xy)/RENDERSIZE.y;
   vec3 dir = vec3(uv,2);
+
+  vec3 light = vec3(1,10,-4);
   light = normalize(light);
   eye = transform(eye);
   dir = transform(dir);
@@ -292,7 +286,7 @@ void main(void)
   light = transform(light);
     
   vec3 color;
-  if (!marchRay(eye,dir,color)) {
+  if (!marchRay(eye,dir,light,toffset,color)) {
     color = (1.0-gl_FragCoord.y/RENDERSIZE.y)*vec3(0.3,0,0.3);
   }
     
