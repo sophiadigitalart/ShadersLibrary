@@ -40,7 +40,7 @@
 				1.0
 			]
 		}
-	],
+	]
 }
 */
 // functions begin

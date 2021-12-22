@@ -40,7 +40,7 @@
 				1.0
 			]
 		}
-	],
+	]
 }
 */
 // https://www.shadertoy.com/view/MsVyRh
@@ -123,5 +123,5 @@ void main(void)
     
     col = mix(col, bg, 1.-exp(-.01*t*t));
 
-    fragColor = vec4(col,1.0);
+    gl_FragColor = vec4(col,1.0);
 }

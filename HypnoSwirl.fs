@@ -42,7 +42,7 @@
 			"MAX" : 3,
 			"DEFAULT" : 1
 		}
-	],
+	]
 }
 */
 // https://www.shadertoy.com/view/4ds3WH

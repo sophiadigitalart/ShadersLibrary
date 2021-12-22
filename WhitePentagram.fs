@@ -40,7 +40,7 @@
 				1.0
 			]
 		}
-	],
+	]
 }
 */
 
@@ -73,7 +73,7 @@ void main() {
     vec3 c = hsv2rgb(vec3(mod(d + TIME / 8.0 + (1.0 - length(st) / 4.0), 1.0), 1.0, 0.9));
     c = mix(c, iColor.rgb, length(st) * 0.3);
 
-    fragColor = vec4(d,d,d,1.0);
+    gl_FragColor = vec4(d,d,d,1.0);
 }
 
 

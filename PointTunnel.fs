@@ -5,7 +5,7 @@
 		"dots"
 	],
 	"INPUTS": [
-	],
+	]
 }*/
 
 #define iResolution RENDERSIZE

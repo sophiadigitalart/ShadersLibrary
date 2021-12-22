@@ -1,35 +1,28 @@
-/*{ 
-"CREDIT" : "AnyArrayIndex by Author",
-"CATEGORIES" : [
-"ci"
-],
-"DESCRIPTION": "https://www.shadertoy.com/view/ldj3Rd",
- "INPUTS": [
-{
-"NAME": "iZoom",
-"TYPE" : "float",
-"MIN" : 0.0,
-"MAX" : 1.0,
-"DEFAULT" : 1.0
-},
- {
-     "NAME" :"iMouse",
-"TYPE" : "point2D",
-"DEFAULT" : [0.0, 0.0],
-"MAX" : [640.0, 480.0],
-"MIN" : [0.0, 0.0]
-},
-{
-"NAME": "iColor", 
-"TYPE" : "color", 
-"DEFAULT" : [
-0.0, 
-1.0, 
-0.0, 
-1.0
-]
-}
-],
+/*{
+  "CREDIT": "AnyArrayIndex by Author",
+  "CATEGORIES": ["ci"],
+  "DESCRIPTION": "https://www.shadertoy.com/view/ldj3Rd",
+  "INPUTS": [
+    {
+      "NAME": "iZoom",
+      "TYPE": "float",
+      "MIN": 0.0,
+      "MAX": 1.0,
+      "DEFAULT": 1.0
+    },
+    {
+      "NAME": "iMouse",
+      "TYPE": "point2D",
+      "DEFAULT": [0.0, 0.0],
+      "MAX": [640.0, 480.0],
+      "MIN": [0.0, 0.0]
+    },
+    {
+      "NAME": "iColor",
+      "TYPE": "color",
+      "DEFAULT": [0.0, 1.0, 0.0, 1.0]
+    }
+  ]
 }
 */
 vec3 AAIPalette[7]; // the color AAIPalette is stored here

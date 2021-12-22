@@ -47,7 +47,7 @@
 				1.0
 			]
 		}
-	],
+	]
 }
 */
 
@@ -87,6 +87,6 @@ void main(void) {
         subImg(gl_FragCoord.xy,2.2,1.2,3.4)*vec3(0.3,0.5,0.7)+
         subImg(gl_FragCoord.xy,5.2,2.2,2.2)*vec3(0.8,0.5,0.1);
     
-    fragColor = vec4((fC/3.6+c)*0.95,1.0);;
+    gl_FragColor = vec4((fC/3.6+c)*0.95,1.0);;
 }
 

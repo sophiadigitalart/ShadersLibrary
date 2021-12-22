@@ -5,16 +5,13 @@
 		"Your category"
 	],
 	"INPUTS": [
-	],
+	]
 }*/
 
 #define iResolution RENDERSIZE
 #define iTime TIME
 
 #define pi 3.14159265359
-
-uniform vec2 u_resolution;
-uniform float u_time;
 
 vec3 hsb2rgb( in vec3 c){
  vec3 rgb = clamp(abs(mod(c.x*6.0+vec3(0.0,4.0,2.0), 6.0)-3.0)-1.0, 0.0, 1.0 );
@@ -42,7 +39,7 @@ vec3 shape(vec2 st, int N, float scl, float smth, float rot){
   // Remap the space to -1. to 1.
   st = st *2.-1.;
   // Angle and radius from the current pixel
-  float a = atan(st.x,st.y)+pi+u_time*rot;
+  float a = atan(st.x,st.y)+pi+TIME*rot;
   float r = pi*2./float(N);
   // Shaping function that modulate the distance
   float d = cos(floor(.5+a/r)*r-a)*length(st*2.)/scl;

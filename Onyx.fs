@@ -40,7 +40,7 @@
 				1.0
 			]
 		}
-	],
+	]
 }
 */
 // https://www.shadertoy.com/view/XsX3z7
@@ -215,5 +215,5 @@ void main(  )
 	// Get direction for this pixel
 	vec3 rayDir = normalize(camDir + (coord.x*camRight + coord.y*camUp)*FieldOfView);
 	
-	fragColor = rayMarch(camPos, rayDir, gl_FragCoord.xy );
+	gl_FragColor = rayMarch(camPos, rayDir, gl_FragCoord.xy );
 }

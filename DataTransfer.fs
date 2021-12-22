@@ -40,7 +40,7 @@
 				1.0
 			]
 		}
-	],
+	]
 }
 */
 // https://www.shadertoy.com/view/MdXGDr
@@ -124,7 +124,7 @@ void main(void)
 	float spec = pow(max(dot(ref, sun), 0.0), 32.0);
 	//vec3 col = mix(vec3(0.0, 0.7, 0.9), vec3(0.0, 0.1, 0.2), diff);
 	
-	vec3 col = mix(iColor, vec3(0.0, 0.1, 0.2), diff);
+	vec3 col = mix(iColor.rgb, vec3(0.0, 0.1, 0.2), diff);
 
 	// enviroment map
 	//col += textureCube(inputImage, ref).xyz * 0.2;

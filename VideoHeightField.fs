@@ -54,7 +54,7 @@
 				1.0
 			]
 		}
-	],
+	]
 }
 */
 // https://www.shadertoy.com/view/Xss3zr
@@ -211,7 +211,7 @@ void main(void)
 		}
      }
 
-    fragColor=vec4(rgb, 1.0);
+    gl_FragColor=vec4(rgb, 1.0);
 	
 }
 

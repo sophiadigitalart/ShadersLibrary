@@ -47,7 +47,7 @@
 				1.0
 			]
 		}
-	],
+	]
 }
 */
 // https://www.shadertoy.com/view/Xtc3Rn
@@ -235,8 +235,8 @@ void main(void)
 {  		
     vec2 uv = gl_FragCoord.xy / RENDERSIZE.xy * iZoom;
     
-	//vec4 sample = texture2D(iChannel1, uv);
-    vec4 sample = IMG_NORM_PIXEL(inputImage, uv);
+	//vec4 the_sample = texture2D(iChannel1, uv);
+    vec4 the_sample = IMG_NORM_PIXEL(inputImage, uv);
     float scale = exp(sin(localTime))*E+GR;
     uv = uv*scale-scale/2.0;
     uv.x *= RENDERSIZE.x/RENDERSIZE.y;
@@ -336,8 +336,8 @@ void main(void)
     
     antispeckle = pow(antispeckle, 1.0/float(max_iterations));
     
-    fragColor.rgb = (color+accum/sum)*(1.0-border);
-    fragColor.a = 1.0;
+    gl_FragColor.rgb = (color+accum/sum)*(1.0-border);
+    gl_FragColor.a = 1.0;
     
-    fragColor = hit;
+    gl_FragColor = hit;
 }

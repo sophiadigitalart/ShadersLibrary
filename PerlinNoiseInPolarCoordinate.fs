@@ -40,7 +40,7 @@
 				1.0
 			]
 		}
-	],
+	]
 }
 */
 // https://www.shadertoy.com/view/ltGfRG
@@ -107,5 +107,5 @@ void main(void)
     p*=0.5; 
     vec3 c=polarCoordinate(vec3(p,TIME));
     vec3 color=vec3(octavePerlinNoise(c))*vec3(p,1.0);
-    fragColor=vec4(color,1.0);
+    gl_FragColor=vec4(color,1.0);
 }

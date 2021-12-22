@@ -40,7 +40,7 @@
 				1.0
 			]
 		}
-	],
+	]
 }
 */
 // https://www.shadertoy.com/view/MscBRs
@@ -149,5 +149,5 @@ void main(void)
     c.r += sin(TIME)*.2 + sin(p.z*.5 - TIME * 6.);// red rings
     c = mix(c, vec3(.2, .1, .2), 1. - exp(-.001*t*t));// fog
 
-    fragColor = vec4(c, 1.0);
+    gl_FragColor = vec4(c, 1.0);
 }

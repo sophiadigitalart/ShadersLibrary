@@ -36,7 +36,7 @@
 			0.0, 
 			1.0
 		]}
-	],
+	]
 }
 */
 // https://www.shadertoy.com/view/XsjXRm
@@ -245,7 +245,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
         col += (0.1*nz*nz* vec3(0.12,0.12,.5) + 0.05*nz2*nz2*vec3(0.55,0.2,.55))*0.8;
     }
     
-	fragColor = vec4(col*1.3, 1.0);
+	gl_FragColor = vec4(col*1.3, 1.0);
 }
 
 void main(void) { mainImage(gl_FragColor, gl_FragCoord.xy); }

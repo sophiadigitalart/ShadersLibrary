@@ -40,7 +40,7 @@
 				1.0
 			]
 		}
-	],
+	]
 }
 */
 // https://www.shadertoy.com/view/XtX3DH
@@ -215,5 +215,5 @@ void main(void)
     col.rgb += flick*(step(mod(time*1.5,3.2),0.2))*.4;
     
  
-    fragColor = vec4( col.rgb, 1.0 );
+    gl_FragColor = vec4( col.rgb, 1.0 );
 }

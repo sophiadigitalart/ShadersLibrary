@@ -40,7 +40,7 @@
 				1.0
 			]
 		}
-	],
+	]
 }
 */
 // https://www.shadertoy.com/view/4tyfDm
@@ -126,5 +126,5 @@ void main(void)
 	// shade    
     col =  .5 *(log(1.+col));
     col = clamp(col,0.,1.);
-    fragColor = vec4( col, 1.0 );
+    gl_FragColor = vec4( col, 1.0 );
 }

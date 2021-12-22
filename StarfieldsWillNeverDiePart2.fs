@@ -40,7 +40,7 @@
 				1.0
 			]
 		}
-	],
+	]
 }
 */
 // https://www.shadertoy.com/view/MlKBWw
@@ -105,5 +105,5 @@ void main(void)
 		float c = exp(-Z * 40.0 + 0.3) / (d * d + 1.0);
 		colour += starColour(hue * 2.4 - 0.4, c * 2.0 * bright);
 	}
-	fragColor = vec4(colour, 1.0);
+	gl_FragColor = vec4(colour, 1.0);
 }
