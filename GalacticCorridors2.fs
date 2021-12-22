@@ -235,8 +235,8 @@ void main(void)
 {  		
     vec2 uv = gl_FragCoord.xy / RENDERSIZE.xy * iZoom;
     
-	//vec4 sample = texture2D(iChannel1, uv);
-    vec4 sample = IMG_NORM_PIXEL(inputImage, uv);
+	//vec4 the_sample = texture2D(iChannel1, uv);
+    vec4 the_sample = IMG_NORM_PIXEL(inputImage, uv);
     float scale = exp(sin(localTime))*E+GR;
     uv = uv*scale-scale/2.0;
     uv.x *= RENDERSIZE.x/RENDERSIZE.y;

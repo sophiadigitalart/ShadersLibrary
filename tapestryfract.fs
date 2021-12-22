@@ -17,24 +17,30 @@
 			"DEFAULT": 0.5,
 			"MIN": 0.0,
 			"MAX": 1.0
+		},
+		{
+			"NAME" :"iMouse",
+			"TYPE" : "point2D",
+			"DEFAULT" : [0.0, 0.0],
+			"MAX" : [640.0, 480.0],
+			"MIN" : [0.0, 0.0]
 		}
 	]
 }*/
 
 // edit of http://glslsandbox.com/e#18752.0
-uniform vec2 mouse;
-
-vec3   iResolution = vec3(RENDERSIZE, 1.0);
-float  iGlobalTime = TIME;
-
-float gTime = iGlobalTime*0.5;
 
 void main( void )
 {
+	vec3 iResolution = vec3(RENDERSIZE, 1.0);
+	float iGlobalTime = TIME;
+
+	float gTime = iGlobalTime*0.5;
+
 	float f = 3.0;
 	float g = 3.0;
 	vec2 res = iResolution.xy;
-	vec2 mou = mouse.xy;
+	vec2 mou = iMouse.xy;
 
 	//if (mouse.x < 0.5)
 	//{
